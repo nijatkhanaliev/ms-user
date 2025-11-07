@@ -28,3 +28,8 @@ server:
   port: 8083
   servlet:
     context-path: /api/
+
+application:
+  client:
+    account: http://localhost:8084/api/
+    order:   http://localhost:8086/api/
