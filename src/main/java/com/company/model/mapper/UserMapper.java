@@ -21,7 +21,6 @@ public interface UserMapper {
 
     UserResponse toUserResponse(User user);
 
-   // @Mapping(target = "userRole", expression = "java(com.company.model.enums.UserRole.USER)")
     @Mapping(target = "hashedPassword", source = "password")
     UserResponseWithPassword toUserResponseWithPassword(User user, @Context PasswordEncoder encoder);
 
