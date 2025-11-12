@@ -66,12 +66,12 @@ public class UserServiceImpl implements UserService {
         }
 
         User user = userMapper.toUser(request, passwordEncoder);
-        User savedUser = userRepository.save(user);
+        user = userRepository.save(user);
 
         AccountCreatedEvent accountCreatedEvent = new AccountCreatedEvent();
-        accountCreatedEvent.setUserId(savedUser.getId());
+        accountCreatedEvent.setUserId(user.getId());
 
-        accountProducer.send(ACCOUNT_EXCHANGE, "account.created", accountCreatedEvent);
+        accountProducer.send(ACCOUNT_EXCHANGE, "user.registered", accountCreatedEvent);
     }
 
     @Override
