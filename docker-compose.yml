@@ -78,8 +78,6 @@ services:
     volumes:
       - delivery_data:/var/lib/postgresql/data
 
-
-
   rabbitmq:
     container_name: rabbitmq_eCommerce
     image: rabbitmq:3-management
